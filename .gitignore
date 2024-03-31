@@ -1,2 +1,6 @@
 # execution files
 test
+
+# input files and output files
+*.in
+*.out

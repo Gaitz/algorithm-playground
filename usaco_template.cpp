@@ -8,12 +8,13 @@ PROG: ride
 #include <string>
 
 using namespace std;
+const string PROG_NAME = "ride";
 
 string solve(string a, string b) { return a; }
 
 int main() {
-  ofstream fout("ride.out");
-  ifstream fin("ride.in");
+  ofstream fout(PROG_NAME + ".out");
+  ifstream fin(PROG_NAME + ".in");
   string a, b;
   fin >> a >> b;
   fout << solve(a, b) << endl;
