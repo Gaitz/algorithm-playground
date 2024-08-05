@@ -42,6 +42,7 @@ Complete Search
 - 依據 KISS 原則, 不管是否有更快速的演算法, 而是先完成
 - 使用的是 brute-force, straight-forward, try-them-all
 - 應該是所有問題的第一個解法
+  - **先試算時間與空間複雜度是否符合條件** 才進行實作
   - 如果這種做法可以符合題目要求的 time constraint 和 space constraint 的話, 應該優先執行
   - 通常容易撰寫和除錯
 - How to evaluate 'number of possibilities'
