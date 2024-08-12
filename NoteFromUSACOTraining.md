@@ -6,6 +6,7 @@ CHAPTER 1
 - Submitting Soln, Task Types, Ad Hoc [7 Items]
 - Complete Search [6 Items]
   Problem Types
+- Greedy, Crafting Solutions [8 Items]
 
 ---
 
@@ -48,3 +49,20 @@ Complete Search
 - How to evaluate 'number of possibilities'
   - 使用 big-O 粗略估計所需要的次數
 - 如果是 recursive 解法時, 需要特別注意 space constraint, 因為每個 function call 的 local variable space 都會成長一倍
+
+---
+
+Greedy Algorithm
+
+- 每次子問題的最佳解會**固定**, 並且會持續推進成全域最佳解
+  - 反之 DP 用來推展的子問題最佳解是不固定的
+- Greedy Algorithm 如果能適用的時候, 通常是最佳解, 有最好的效能, 花少數的空間, 實作簡單
+- 如果 Greedy Algorithm 不保證正確性時, 通常也會是好用的近似演算法 (approximation algorithm)
+
+---
+
+Note
+
+- 在題目有提供, 某些參數的上下界時, 可能可以用完全走訪某個參數的可能值, 產生性能優化的演算法
+  - 範例: Mixing Milk 的 O(n) 解法
+- 已知的限制, 是提供演算法優化的提示
