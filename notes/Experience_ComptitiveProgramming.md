@@ -1,8 +1,9 @@
 Strategies
 
-- Brute force (1)
+- Brute force
 - Greedy
-- Two pointer / Three pointers (1)
+- Two pointer / Three pointers
+- Filtering vs. Generating
 
 Data Structure and Operations
 
