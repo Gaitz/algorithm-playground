@@ -1,6 +1,14 @@
 # execution files
 test
+usaco_template
 
 # input files and output files
 *.in
 *.out
+
+# editor or ide 
+launch.json
+tasks.json
+info.plist
+c_cpp_properties.json
+usaco_template.yml

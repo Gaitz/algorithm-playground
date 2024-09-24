@@ -15,3 +15,11 @@ Practice Resources:
 
 - USACO TRAINING
 - codeforces problem set
+
+C++
+
+- STL
+  - `vector`
+  - `set`
+  - `tuple`
+  - `sort()`

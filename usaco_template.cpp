@@ -8,6 +8,7 @@ PROG: ride
 #include <string>
 
 using namespace std;
+
 const string PROG_NAME = "ride";
 
 string solve(string a, string b) { return a; }
