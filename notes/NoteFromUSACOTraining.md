@@ -2,11 +2,12 @@ TOC
 
 CHAPTER 1
 
-- Introduction
-- Submitting Soln, Task Types, Ad Hoc [7 Items]
-- Complete Search [6 Items]
-  Problem Types
-- Greedy, Crafting Solutions [8 Items]
+- 1.1, Introduction
+- 1.2, Submitting Soln, Task Types, Ad Hoc [7 Items]
+- 1.3, Complete Search [6 Items]
+- 1.4, Greedy, Crafting Solutions [8 Items]
+- 1.5, More Search Techniques [3 Items]
+- 1.6, Binary Numbers [4 Items]
 
 ---
 
@@ -57,7 +58,7 @@ Greedy Algorithm
 - 每次子問題的最佳解會**固定**, 並且會持續推進成全域最佳解
   - 反之 DP 用來推展的子問題最佳解是不固定的
 - Greedy Algorithm 如果能適用的時候, 通常是最佳解, 有最好的效能, 花少數的空間, 實作簡單
-- 如果 Greedy Algorithm 不保證正確性時, 通常也會是好用的近似演算法 (approximation algorithm)
+- 如果 Greedy Algorithm 不保證正確性時, 通常也會是好用的近似演算法 (approximation algorithm), 效能優勢
 
 ---
 
@@ -154,31 +155,50 @@ Note
 - 在題目有提供, 某些參數的上下界時, 可能可以用完全走訪某個參數的可能值, 產生性能優化的演算法
   - 範例: Mixing Milk 的 O(n) 解法
 - 明確的思考選用 Generating 或是 Filtering 的演算法
-  - Filtering 應該優先 (brute force)
+  - Filtering 應該優先 (brute force), 通常比較簡單
 - 已知的限制, 是提供演算法優化的提示
 - 題目沒有提供的資訊, 不要假設
   - 例如: 題目沒有說 input 會是 sorted 時, 儘管 input example 是 sorted 也不能自動當作是
 
 ---
 
-My Game Plan
+Search Techniques
 
-- 先看一輪所有的題目
-- 解題應該由負擔最輕的開始, 做到最困難的
-- 先思考所有可能的演算法, 選擇最笨的那種
-  - 演算法思考順序: Filtering (brute force) -> Generating
-- 實際用數字計算, 時間複雜度, 空間複雜度, 特殊案例,
-- 開始使用特殊案例建立演算法
-- 開始撰寫, 同一時間只嘗試解決一題
-  - 決定要使用的演算法
-  - 建立 test case 案例
-    - 一次只需要一個測試案例, 並且必須包含手動計算輸出值
-  - 撰寫要使用的資料結構
-  - 撰寫 input 的邏輯並且測試
-  - 撰寫 output 的邏輯並且測試
-  - Stepwise refinement, 先用註解, 撰寫出演算法邏輯的框架
-  - 一次撰寫填入一個演算法區塊並且測試過
-  - 使用 trivial test case 驗證整體的正確性
-  - 嘗試破壞程式碼, 使用特殊案例來驗證正確性
-  - 嘗試最佳化, 只有在需要的時候最佳化, 並且只最佳化到需要的程度, 並且必須保留之前所有可以運行的各種版本, 使用最極端的測試案例檢測實際的 runtime
-- 草圖: 演算法, 複雜度, 相關的數字, 資料結構, tricky details
+- 走訪或搜尋 graph 或 tree
+- DFS, Depth First Search
+  - 一直走到遞回最深層才進行計算
+  - 通常與 stack 資料結構有關
+  - 搜尋時間是 O(c^d), c 代表每層有多少決定, d 代表深度
+  - 需要的空間複雜度 O(d), 因為每層呼叫都需要複製一份空間, 因此複雜度會是深度
+  - 如果是 graph 並且以 V 代表節點數, E 代表相連的邊數,
+    - 時間複雜度是 O(V + E), 因為會走訪所有的節點與邊數
+    - 空間複雜度是 O(V), 最糟的情況會需要記住所有的節點, 例如一條直線
+- BFS, Breadth First Search
+  - 一次處理完一層, 才往下一層走
+  - 把當前節點加入 queue 中, 然後從 queue 中取出一個節點進行計算, 然後把所有子節點加入 queue 中
+  - 通常與 queue 資料結構有關
+  - 搜尋複雜度是 O(c^d), c 代表每層有多少決定, d 代表深度
+  - 空間複雜度是 O(V), 最糟的情況需要一次把所有節點存入 queue 中
+- Depth First Search with Iterative Deepening (DFS+ID, IDS, IDDFS)
+  - 重複進行限制深度的 DFS, 每次深度限制都增加
+  - 實現類似 BFS 的順序, 換句話說是以重複執行 DPS 模擬 BFS
+  - 優點是有更好的空間複雜度, 變成跟深度有關
+  - 缺點是會有重複計算的情況, 重複計算之前走過的深度
+- 以上三種方式的時間複雜度基本上是一樣的
+
+如何選擇適合的方式
+
+- 取決於搜尋的結構形態和預期搜尋的結果位置
+  - 記得 DFS 與 BFS 的搜尋順序, 如果需要提供順序或距離相關的資訊時要選擇適合的
+- DFS
+  - 預期搜尋的節點靠近深處 (leaf)
+- BFS
+  - 預期搜尋的節點靠近 root
+- DFS+ID
+  - 想要使用 BFS 但是空間不夠用的時候
+
+補充
+
+- Backtracking 就是指 dfs 走訪時往回走的情況
+
+---
